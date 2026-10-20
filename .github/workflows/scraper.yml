@@ -1,8 +1,9 @@
 name: Pflege Scraper 2027
 on:
   workflow_dispatch:
-  schedule:
-    - cron: \'0 7 * * *\'
+
+permissions:
+  contents: write
 
 jobs:
   scrape:
@@ -13,14 +14,17 @@ jobs:
         with:
           python-version: \'3.11\'
       - run: pip install -r requirements.txt
+      - run: playwright install chromium
+      - run: playwright install-deps chromium
       - run: python scraper.py
       - uses: actions/upload-artifact@v4
         with:
           name: pflege-excel-2027
           path: pflege_ausbildung_2027.xlsx
+          if-no-files-found: warn
       - run: |
           git config --global user.name "bot"
           git config --global user.email "bot@github.com"
-          git add pflege_ausbildung_2027.xlsx
+          git add pflege_ausbildung_2027.xlsx || true
           git commit -m "update 100 offres" || exit 0
           git push
