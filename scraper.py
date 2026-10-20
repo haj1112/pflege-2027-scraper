@@ -103,7 +103,7 @@ def main():
                     if not title:
                         continue
 
-                    # Keep offers explicitly mentioning 2027.
+                  
                     card_text = clean(card.css("::text").getall())
                   
 
