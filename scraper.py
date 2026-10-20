@@ -23,12 +23,12 @@ for page in range(1, 4):
     for card in cards:
         try:
             title = card.css('h3::text')[0].strip() if card.css('h3::text') else "Pflege Ausbildung 2027"
-            firma = card.css(\'.company::text\')[0].strip() if card.css(\'.company::text\') else ""
-            ort = card.css(\'.location::text\')[0].strip() if card.css(\'.location::text\') else ""
-            link = card.css(\'a::attr(href)\')[0] if card.css(\'a::attr(href)\') else ""
+            firma = card.css(\'.company::text\')[0].strip() if card.css(\'.company::text') else ""
+            ort = card.css(\'.location::text\')[0].strip() if card.css(\'.location::text') else ""
+            link = card.css(\'a::attr(href)\')[0] if card.css(\'a::attr(href)') else ""
             if link and not link.startswith("http"):
                 link = "https://www.azubiyo.de" + link
-            datum = card.css(\'.date::text\')[0].strip() if card.css(\'.date::text\') else "2026"
+            datum = card.css(\'.date::text\')[0].strip() if card.css(\'.date::text') else "2026"
             
             # n7ebou ken 2027
             if "2027" in title or "2027" in str(card.html_content) or True:
@@ -60,13 +60,13 @@ if len(all_offres) < 100:
     for page in range(1, 4):
         url = f"https://www.ausbildung.de/ausbildung/pflege/?page={page}"
         page_obj = Fetcher.get(url, stealth=True, headless=True)
-        cards = page_obj.css(\'div.job-card\')
+        cards = page_obj.css(\'div.job-card')
         for card in cards:
             try:
                 title = card.css(\'h2::text\')[0].strip() if card.css(\'h2::text\') else "Pflege Ausbildung"
-                firma = card.css(\'p.company::text\')[0].strip() if card.css(\'p.company::text\') else ""
-                ort = card.css(\'span.location::text\')[0].strip() if card.css(\'span.location::text\') else ""
-                link = card.css(\'a::attr(href)\')[0] if card.css(\'a::attr(href)\') else ""
+                firma = card.css(\'p.company::text\')[0].strip() if card.css(\'p.company::text') else ""
+                ort = card.css(\'span.location::text\')[0].strip() if card.css(\'span.location::text') else ""
+                link = card.css(\'a::attr(href)\')[0] if card.css(\'a::attr(href)') else ""
                 if link and not link.startswith("http"):
                     link = "https://www.ausbildung.de" + link
                 datum = "2026"
