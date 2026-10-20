@@ -105,8 +105,7 @@ def main():
 
                     # Keep offers explicitly mentioning 2027.
                     card_text = clean(card.css("::text").getall())
-                    if "2027" not in title and "2027" not in card_text:
-                        continue
+                  
 
                     company = first_text(
                         card,
