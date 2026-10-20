@@ -22,7 +22,7 @@ for page in range(1, 4):
     print(f"Page {page} -> {len(cards)} offres")
     for card in cards:
         try:
-            title = card.css(\'h3::text\')[0].strip() if card.css(\'h3::text\') else "Pflege Ausbildung 2027"
+            title = card.css('h3::text')[0].strip() if card.css('h3::text') else "Pflege Ausbildung 2027"
             firma = card.css(\'.company::text\')[0].strip() if card.css(\'.company::text\') else ""
             ort = card.css(\'.location::text\')[0].strip() if card.css(\'.location::text\') else ""
             link = card.css(\'a::attr(href)\')[0] if card.css(\'a::attr(href)\') else ""
