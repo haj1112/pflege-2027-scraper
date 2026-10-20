@@ -1,10 +1,8 @@
 name: Pflege Scraper 2027
 on:
   workflow_dispatch:
-
 permissions:
   contents: write
-
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -12,10 +10,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: 3.11
+          python-version: "3.11"
       - run: pip install -r requirements.txt
-      - run: playwright install chromium
-      - run: playwright install-deps chromium
+      - run: python -m playwright install chromium --with-deps
       - run: python scraper.py
       - uses: actions/upload-artifact@v4
         with:
