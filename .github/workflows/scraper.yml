@@ -12,7 +12,6 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install -r requirements.txt
-      - run: python -m playwright install chromium --with-deps
       - run: python scraper.py
       - uses: actions/upload-artifact@v4
         with:
