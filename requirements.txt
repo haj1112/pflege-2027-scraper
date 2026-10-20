@@ -1,0 +1,3 @@
+scrapling
+pandas
+openpyxl
