@@ -18,7 +18,7 @@ for page in range(1, 4):
     if page_obj.status != 200:
         continue
     
-    cards = page_obj.css(\'a.job-card, div.angebot\')
+    cards = page_obj.css(\'a.job-card, div.angebot')
     print(f"Page {page} -> {len(cards)} offres")
     for card in cards:
         try:
